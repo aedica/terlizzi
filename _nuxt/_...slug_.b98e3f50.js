@@ -1,0 +1,1 @@
+import{u as e}from"./vue.f36acd1f.88feae16.js";import{d as t,b as n,c as o}from"./entry.410cd3e8.js";const i=t({__name:"[...slug]",setup(s){return e({title:"News",meta:[{name:"description",content:"Description"}]}),(a,r)=>(n(),o("main",null,"News"))}});export{i as default};

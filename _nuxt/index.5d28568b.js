@@ -1,0 +1,1 @@
+import{u as e}from"./vue.f36acd1f.88feae16.js";import{d as o,b as t,c as n}from"./entry.410cd3e8.js";const a={class:"bg-red-500"},_=o({__name:"index",setup(s){return e({title:"Ciao",meta:[{name:"description",content:"Mondo"}]}),(c,r)=>(t(),n("main",a,"Hello"))}});export{_ as default};
