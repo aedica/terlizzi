@@ -11,5 +11,5 @@ useHead({
 </script>
 
 <template>
-  <main class="bg-red-500">Ciao</main>
+  <main class="bg-red-500">Hello</main>
 </template>
