@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const news = await useAsyncData("news", queryContent("/news").find);
+console.log("News! ", news.data.value);
 useHead({
   title: "Ciao",
   meta: [
@@ -14,5 +16,15 @@ useHead({
 </script>
 
 <template>
-  <main class="bg-red-500">Hello</main>
+  <main class="">
+    <!-- {{ news.data.value }} -->
+    <div class="news-grid overflow-y-hidden">
+      <NewsCard
+        v-for="(item, i) in news.data.value"
+        :key="i"
+        :item="item"
+        class="flex-grow flex-shrink-0"
+      />
+    </div>
+  </main>
 </template>

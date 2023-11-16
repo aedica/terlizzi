@@ -3,10 +3,10 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port=3000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "slicemachine": "start-slicemachine"
+    "server": "npx decap-server"
   },
   "devDependencies": {
     "@nuxt/content": "^2.9.0",
@@ -15,7 +15,9 @@
     "nuxt": "^3.8.1"
   },
   "dependencies": {
+    "@nuxt/image": "^1.0.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@tailwindcss/typography": "^0.5.10",
     "@typescript-eslint/parser": "^6.11.0",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
