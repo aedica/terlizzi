@@ -1,1 +1,0 @@
-import{u as e}from"./vue.f36acd1f.8a362302.js";import{d as t,b as n,c as o}from"./entry.d1ce0b38.js";const i={class:"bg-red-500"},m=t({__name:"index",setup(s){return e({title:"Ciao",meta:[{name:"description",content:"Mondo"}],script:[{src:"https://identity.netlify.com/v1/netlify-identity-widget.js"}]}),(a,c)=>(n(),o("main",i,"Hello"))}});export{m as default};
