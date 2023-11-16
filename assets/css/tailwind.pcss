@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@layer components {
+  .news-grid {
+    @apply flex flex-nowrap overflow-x-auto scroll-smooth;
+    scroll-snap-type: mandatory;
+    -webkit-overflow-scrolling: smooth;
+    > .news-card {
+      @apply snap-mandatory snap-start;
+    }
+  }
+  .kicker {
+    @apply bg-white inline-block px-4 py-2 font-condensed uppercase;
+  }
+  .big-title {
+    @apply text-4xl md:text-6xl font-bold font-heading max-w-xl md:max-w-2xl text-white py-4;
+    text-shadow: 5px 3px 1px theme("colors.indigo.500");
+  }
+  .subtitle {
+    @apply text-lg font-bold text-white;
+  }
+}
+@tailwind utilities;

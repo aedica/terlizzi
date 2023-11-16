@@ -1,12 +1,14 @@
+local_backend: true
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
-
-media_folder: static/img
+media_folder: public/img
 public_folder: /img
 publish_mode: editorial_workflow
+locale: "it"
 collections:
-  - name: "authors"
+  - name: "author"
+    identifier_field: "nickname"
     label: "Autori"
     folder: "content/authors"
     format: "frontmatter"
@@ -15,24 +17,53 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Nome", name: "name", widget: "string" }
+      - { label: "Nome", name: "title", widget: "string" }
       - { label: "Cognome", name: "last_name", widget: "string" }
       - { label: "Nickname", name: "nickname", widget: "string" }
-      - { label: "Twitter", name: "twitterHandle", widget: "string" }
+      - { label: "slug", name: "slug", widget: "string" }
+      - {
+          label: "Twitter",
+          name: "twitterHandle",
+          widget: "string",
+          required: false,
+        }
       - { label: "Email", name: "email", widget: "string" }
-      - { label: "Avatar", name: "avatar", widget: "image" }
+      - { label: "Avatar", name: "avatar", widget: "image", required: false }
+
+  - name: "tag"
+    identifier_field: "title"
+    label: "Tag"
+    folder: "content/tags"
+    format: "frontmatter"
+    create: true
+    slug: "{{title}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nome", name: "title", widget: "string" }
   - name: "blog"
     label: "Blog"
     folder: "content/news"
+    preview_path_date_field: "updated_on"
     format: "frontmatter"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: "Occhiello", name: "kicker", widget: "string" }
+      - {
+          label: "Occhiello",
+          name: "kicker",
+          widget: "string",
+          required: false,
+        }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Sottotitolo", name: "subtitle", widget: "string" }
+      - {
+          label: "Sottotitolo",
+          name: "subtitle",
+          widget: "string",
+          required: false,
+        }
       - { label: "Data di pubblicazione", name: "date", widget: "datetime" }
       - {
           label: "Copertina",
@@ -48,12 +79,24 @@ collections:
           widget: "image",
           choose_url: true,
           media_library: { config: { multiple: true } },
+          required: false,
+        }
+      - {
+          label: "Tag",
+          name: "tag",
+          widget: "relation",
+          collection: "tag",
+          search_fields: ["name"],
+          value_field: "slug",
+          display_fields: ["name"],
+          required: false,
+          multiple: true,
         }
       - {
           label: "Autore",
           name: "author",
           widget: "relation",
-          collection: "authors",
+          collection: "author",
           search_fields: ["name", "twitterHandle"],
           value_field: "name",
           display_fields: ["nickname"],
